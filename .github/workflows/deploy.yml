@@ -17,5 +17,5 @@ jobs:
           username: ${{ secrets.OCI_USER }}
           key: ${{ secrets.OCI_SSH_KEY }}
           script: |
-            cd /home/opc
+            cd /home/opc/typst-gpt
             git pull origin master
