@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz App</title>
+</head>
+
+<body>
+
+    <h2>Quiz</h2>
+
+    <div id="quiz"></div>
+
+    <script>
+
+        async function loadQuiz() {
+
+            const res = await fetch("/tool/generateQuiz", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    topic: "Operating Systems"
+                })
+            });
+
+            const data = await res.json();
+
+            const container = document.getElementById("quiz");
+
+            data.quiz.forEach(q => {
+
+                const block = document.createElement("div");
+
+                const question = document.createElement("p");
+                question.innerText = q.question;
+
+                block.appendChild(question);
+
+                q.options.forEach(option => {
+
+                    const button = document.createElement("button");
+
+                    button.innerText = option;
+
+                    button.onclick = () => {
+                        if (option === q.answer) {
+                            alert("Correct");
+                        } else {
+                            alert("Wrong");
+                        }
+                    };
+
+                    block.appendChild(button);
+
+                });
+
+                container.appendChild(block);
+
+            });
+
+        }
+
+        loadQuiz();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: Quiz Generator API
+  description: API that generates quiz questions
+  version: "1.0"
+
+servers:
+  - url: https://d031-103-61-75-62.ngrok-free.app/sse
+
+paths:
+  /tool/generateQuiz:
+    post:
+      operationId: generateQuiz
+      summary: Generate quiz questions from a topic
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                topic:
+                  type: string
+                  description: Topic to generate quiz for
+      responses:
+        "200":
+          description: Quiz questions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  quiz:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        question:
+                          type: string
+                        options:
+                          type: array
+                          items:
+                            type: string
+                        answer:
+                          type: string

@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Quiz Generator",
+  "name_for_model": "quiz_generator",
+  "description_for_human": "Generate MCQ quizzes for study topics",
+  "description_for_model": "Generate quiz questions for learning topics",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://d031-103-61-75-62.ngrok-free.app/openapi.yaml"
+  },
+  "logo_url": "https://d031-103-61-75-62.ngrok-free.app/logo.png",
+  "contact_email": "support@example.com",
+  "legal_info_url": "https://d031-103-61-75-62.ngrok-free.app/legal.html"
+}
